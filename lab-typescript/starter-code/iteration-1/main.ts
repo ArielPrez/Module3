@@ -2,7 +2,9 @@
 // 1. Create an array of strings
 let arrString: Array<string> = [];
 const l: any = console.log;
+
 // 2. Create a function to add a task in to the array, call it `addTask`, the function has to accept a string and don't have to return anything.
+
 function addTask(task:string):number {
   arrString.push(task);
   l(`=========== NEW TASK ===========
@@ -16,9 +18,11 @@ function listAllTasks() {
 }
 // 4. Create a function to delete a task, you must find the task inside the array and delete it.
 function deleteTask(task:string) {
-  let str = arrString.indexOf(task);
+  let str: number = arrString.indexOf(task);
   arrString.splice(str,1);
-  l(task);
+  l(`=========== TASK REMOVED ===========
+  Task "${task}" removed from the list`);
+  l(`Number of items: ${arrString.length}`);
   return arrString.length;
 }
 // Execution
