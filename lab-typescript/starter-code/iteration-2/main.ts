@@ -6,7 +6,7 @@ const l: any = console.log;
 
 class Todo implements TodoInterface {
 
-    constructor(public myArray : Array<string>) {} // ====> como se que poner dentro?
+    constructor(public myArray : Array<string>) {} // 
 
     addTask(task : string): number {
         this.myArray.push(task);
@@ -21,8 +21,7 @@ class Todo implements TodoInterface {
       l(...this.myArray);
     }
     deleteTask(task:string):number{
-      let str = this.myArray.indexOf(task); //====> porque no asi?
-      // let str:number = this.myArray.indexOf(task);
+      let str:number = this.myArray.indexOf(task); 
       this.myArray.splice(str,1);
       l(`=========== TASK REMOVED ===========
       Task "${task}" removed from the list
