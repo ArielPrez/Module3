@@ -1,6 +1,7 @@
 // Iteration 1
 // 1. Create an array of strings
-let arrString: Array<string> = [];
+// let arrString: Array<string> = [];
+let arrString: string[];
 const l: any = console.log;
 
 // 2. Create a function to add a task in to the array, call it `addTask`, the function has to accept a string and don't have to return anything.
