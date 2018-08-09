@@ -34,10 +34,7 @@ class TodoList implements TodoListInterface{
     return this.list.length;
 
   }
-  // list: Array<TodoItemInterface>;
-  // addTask(task:TodoItemInterface):number;
-  // listAllTasks():void;
-  // deleteTask(task:TodoItemInterface):number;
+  
 }
 
 

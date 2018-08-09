@@ -33,7 +33,7 @@ class Todo implements TodoInterface {
 // Execution
 let myArray: Array<string> = [];
 
-let myTodos = new Todo(myArray); //====> como se que poner aqui?
+let myTodos = new Todo(myArray); 
 console.log("Number of items:", myTodos.addTask('This is our first task'));
 console.log("Number of items:", myTodos.addTask('Eat pizza 🍕 yummy!!!'));
 console.log(
