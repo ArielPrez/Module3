@@ -5,7 +5,9 @@
     </h4>
     <form action="/action_page.php">
       <label for="">Search:  </label>
-      <input class="inputS" type="search" name=""><br/>
+      <input class="inputS" type="search" name="" (keyup)="recordAllTheKeyStrokes($event)">
+      <label class="key" for="">    {{key}}</label>
+      <br/>
       <button type="submit">Search</button>
     </form>
     <ul>

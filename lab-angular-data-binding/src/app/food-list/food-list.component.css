@@ -31,7 +31,7 @@ li{
   /* border: 1px solid #000000; */
 }
 form{
-  width: 300px;
+  width: 400px;
   height: auto;
   margin: 15px 15px;
   font-size: 20px;
@@ -41,4 +41,10 @@ form{
 form button{
   padding: 8px;
   border-radius: 5px;
+}
+.key{
+  margin:  0 0 0 20px;
+  width: 50px;
+/* border: 1px solid #000000; */
+
 }

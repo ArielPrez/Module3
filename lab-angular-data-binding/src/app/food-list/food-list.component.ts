@@ -9,20 +9,18 @@ import foods from '../foods';
 export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
+  key: string;
+
   constructor() { }
 
   ngOnInit() {
     this.foods = foods;
   }
 
+  recordAllTheKeyStrokes(event) {
+    // console.log(`Key inserted: ${event.key}`);
+    this.key = event.key;
+    // console.log(`Input value: ${event.currentTarget.value}`);
+  }
 }
 
-/*
-const foods: Object[] = [
-  {
-    name: `Pizza`,
-    calories: 400,
-    image: `https://i.imgur.com/eTmWoAN.png`,
-    quantity: 0
-  },
-*/
