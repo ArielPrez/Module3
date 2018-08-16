@@ -10,6 +10,9 @@ export class FoodListComponent implements OnInit {
   foods: Object[];
   newFood: Object = {};
   key: string;
+  sech: String = 'Search';
+  isInputDisabled: Boolean = false;
+
 
   constructor() { }
 
@@ -21,6 +24,11 @@ export class FoodListComponent implements OnInit {
     // console.log(`Key inserted: ${event.key}`);
     this.key = event.key;
     // console.log(`Input value: ${event.currentTarget.value}`);
+  }
+
+    toggleInput() {
+        this.isInputDisabled = !this.isInputDisabled;
+        if (this.isInputDisabled) { this.sech = 'Activate'; } else { this.sech = 'Search'; }
   }
 }
 

@@ -4,12 +4,16 @@
         List of Foods:
     </h4>
     <form action="/action_page.php">
-      <label for="">Search:  </label>
-      <input class="inputS" type="search" name="" (keyup)="recordAllTheKeyStrokes($event)">
-      <label class="key" for="">    {{key}}</label>
+      <label for="srch">Search:  </label>
+      <input class="inputS" type="search" id="srch" (keyup)="recordAllTheKeyStrokes($event)" [disabled]="isInputDisabled" [ngClass]="{ bordered: true }">
+      <label class="key" for="srch">    {{key}}</label>
       <br/>
-      <button type="submit">Search</button>
+      <button type="submit" (click)="toggleInput()">{{sech}}</button>
     </form>
+
+    <!-- <input type="text" [disabled]="isInputDisabled" />
+    <button (click)="toggleInput()"> Toggle input </button> -->
+
     <ul>
       <li *ngFor="let i of foods">
         <span>{{i.name}}</span>
@@ -23,14 +27,6 @@
 </div>
 
 
-<!-- /*
-const foods: Object[] = [
-  {
-    name: `Pizza`,
-    calories: 400,
-    image: `https://i.imgur.com/eTmWoAN.png`,
-    quantity: 0
-  },
-*/ -->
+
 
 
