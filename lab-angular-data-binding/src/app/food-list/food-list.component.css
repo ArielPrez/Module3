@@ -46,12 +46,15 @@ form button{
   margin:  0 0 0 20px;
   width: 50px;
 /* border: 1px solid #000000; */
-
+}
+.word{
+  /* border: 1px solid blue; */
+  text-align: left;
 }
 .inputS{
-  background-color: aqua;
+  background-color: aliceblue;
 }
 .bordered {
   border: 1px solid blue;
-  background-color: gray;
+  background-color: rgb(187, 184, 184);
 }

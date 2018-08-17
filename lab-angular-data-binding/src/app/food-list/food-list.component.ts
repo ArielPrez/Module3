@@ -12,7 +12,7 @@ export class FoodListComponent implements OnInit {
   key: string;
   sech: String = 'Search';
   isInputDisabled: Boolean = false;
-
+  color: Boolean = false;
 
   constructor() { }
 
@@ -26,9 +26,13 @@ export class FoodListComponent implements OnInit {
     // console.log(`Input value: ${event.currentTarget.value}`);
   }
 
-    toggleInput() {
+  toggleInput() {
         this.isInputDisabled = !this.isInputDisabled;
         if (this.isInputDisabled) { this.sech = 'Activate'; } else { this.sech = 'Search'; }
   }
+  changeBorder(){
+    this.color = !this.color; 
+  }
+  
 }
 

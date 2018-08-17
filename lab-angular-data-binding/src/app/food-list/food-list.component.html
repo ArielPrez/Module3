@@ -4,21 +4,32 @@
         List of Foods:
     </h4>
     <form action="/action_page.php">
-      <label for="srch">Search:  </label>
-      <input class="inputS" type="search" id="srch" (keyup)="recordAllTheKeyStrokes($event)" [disabled]="isInputDisabled" [ngClass]="{ bordered: true }">
-      <label class="key" for="srch">    {{key}}</label>
+      <label for="srch">Search:&nbsp;&nbsp;</label>
+      <input 
+        class="inputS" 
+        type="search" 
+        id="srch" 
+        name="srch"
+        (keyup)="recordAllTheKeyStrokes($event)" 
+        [disabled]="isInputDisabled" 
+        [ngClass]="{ bordered: color }"
+        [(ngModel)]="sechWrd"
+      >  <!-- // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
+      <label class="key" for="srch">&nbsp;(&nbsp;{{key}}&nbsp;)&nbsp;</label>
       <br/>
-      <button type="submit" (click)="toggleInput()">{{sech}}</button>
+      <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label>
+      <br/>
+      <button type="submit" (click)="toggleInput(); changeBorder()">{{sech}}</button>
     </form>
-
-    <!-- <input type="text" [disabled]="isInputDisabled" />
-    <button (click)="toggleInput()"> Toggle input </button> -->
 
     <ul>
       <li *ngFor="let i of foods">
         <span>{{i.name}}</span>
         <span>Calories: {{i.calories}}</span><br/>
-        <label for="">Quantity:</label><input type="number" value="{{i.quantity}}" />  <!--[(ngModule)]="i.quantity" -->
+        <label for="">Quantity:</label>
+        <input 
+          type="number"   
+          value="{{i.quantity}}"/>
         <img [src]="i.image" alt="{{i.name}}">
         
 
