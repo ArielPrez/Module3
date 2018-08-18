@@ -4,6 +4,10 @@
   height: auto;
   /* border: 1px solid #000000;   */
 }
+#srchForm{
+  border: 1px solid #000000;
+  margin: 2%;
+}
 img{
   width: 150px;
   height: auto;

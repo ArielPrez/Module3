@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <div id="ironFoods">
-    <h4>
-        List of Foods:
-    </h4>
-    <form action="/action_page.php">
-      <label for="srch">Search:&nbsp;&nbsp;</label>
-      <input 
-        class="inputS" 
-        type="search" 
-        id="srch" 
-        name="srch"
-        (keyup)="recordAllTheKeyStrokes($event)" 
-        [disabled]="isInputDisabled" 
-        [ngClass]="{ bordered: color }"
-        [(ngModel)]="sechWrd"
-      >  <!-- // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
-      <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label>
-      <br/>
-      <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label>
-      <br/>
-      <button 
-        type="submit" 
-        [ngClass]="{ bordered: color }"
-        (click)="toggleInput(); changeBorder()" 
-        [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
-      >{{sech}}</button>
-    </form>
+    
+    <!-- THIS SHOW A SEARCH INPUT WITH A BUTTON -->
+    <div id="srchForm">
+        <form action="/action_page.php">
+          <label for="srch">Search:&nbsp;&nbsp;</label>
+      <!-- INPUT TO SEARCH -->
+          <input 
+            class="inputS" 
+            type="search" 
+            id="srch" 
+            name="srch"
+            (keyup)="recordAllTheKeyStrokes($event)" 
+            [disabled]="isInputDisabled" 
+            [ngClass]="{ bordered: color }"
+            [(ngModel)]="pattern"
+          >  <!--[(ngModel)]="sechWrd" // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
+          <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label>
+          <br/>
+          <!-- <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label> -->
+          <br/>
+          <button 
+            type="submit" 
+            [ngClass]="{ bordered: color }"
+            (click)="toggleInput(); changeBorder()" 
+            [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+          >{{sech}}</button>
+        </form>
+    </div>
+    
 
+<!-- THIS SHOW A LIST OF FOODS -->
+<h4>
+    List of Foods:
+</h4>
     <ul>
-      <li *ngFor="let i of foods">
+      <li *ngFor="let i of foods | search:'name':pattern; let j = index">
         <span>{{i.name}}</span>
         <span>Calories: {{i.calories}}</span><br/>
         <label for="">Quantity:</label>
         <input 
           type="number"   
-          value="{{i.quantity}}"/>
+          value="{{i.quantity}}"
+          />
         <img [src]="i.image" alt="{{i.name}}">
-        
-
+       
       </li>
     </ul>
 </div>

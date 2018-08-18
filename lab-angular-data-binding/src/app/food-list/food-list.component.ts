@@ -17,6 +17,7 @@ export class FoodListComponent implements OnInit {
   isInputDisabled: Boolean = false;
   color: Boolean = false;
   isActive = true;
+  pattern: string;
 
   constructor() { }
 
