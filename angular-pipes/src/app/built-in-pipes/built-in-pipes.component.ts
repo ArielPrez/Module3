@@ -2,17 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-built-in-pipes',
-  template: `
-    <p>
-    <p> Date: {{ today }} </p>
-    <p> Date: {{ today | date:'dd/MM/yyyy' }} </p>
-
-    <button (click)="increment()"> Add one day! </button>
-    </p>
-  `,
-  styles: [],
-  // templateUrl: './built-in-pipes.component.html',
-  // styleUrls: ['./built-in-pipes.component.css']
+  templateUrl: './built-in-pipes.component.html', 
+  styleUrls: ['./built-in-pipes.component.css']
 })
 export class BuiltInPipesComponent implements OnInit {
 

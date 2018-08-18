@@ -1,5 +1,5 @@
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; //<- ya lo tienes, aunque con el auto import no creo que necesites estar tan pendiente
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,4 +23,9 @@ import { CustomPipesComponent } from './pipes/custom-pipes/custom-pipes.componen
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
+
+
+
+
+
