@@ -3,6 +3,9 @@ import foods from '../foods';
 
 @Component({
   selector: 'app-food-list',
+  template: `
+    <p> <h1>Hola</h1> </p>
+  `,
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
@@ -13,6 +16,7 @@ export class FoodListComponent implements OnInit {
   sech: String = 'Search';
   isInputDisabled: Boolean = false;
   color: Boolean = false;
+  isActive = true;
 
   constructor() { }
 
@@ -28,11 +32,14 @@ export class FoodListComponent implements OnInit {
 
   toggleInput() {
         this.isInputDisabled = !this.isInputDisabled;
+        this.isActive = !this.isActive;
         if (this.isInputDisabled) { this.sech = 'Activate'; } else { this.sech = 'Search'; }
   }
   changeBorder(){
     this.color = !this.color; 
-  }
+  } 
+
+  
   
 }
 

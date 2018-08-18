@@ -42,6 +42,9 @@ form button{
   padding: 8px;
   border-radius: 5px;
 }
+
+button:focus {outline:0;}
+
 .key{
   margin:  0 0 0 20px;
   width: 50px;
@@ -52,9 +55,11 @@ form button{
   text-align: left;
 }
 .inputS{
-  background-color: aliceblue;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: white;
 }
 .bordered {
-  border: 1px solid blue;
-  background-color: rgb(187, 184, 184);
+  border: 1px solid rgb(88, 180, 241);
+  background-color: rgb(202, 199, 199);
 }

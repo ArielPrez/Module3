@@ -15,11 +15,16 @@
         [ngClass]="{ bordered: color }"
         [(ngModel)]="sechWrd"
       >  <!-- // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
-      <label class="key" for="srch">&nbsp;(&nbsp;{{key}}&nbsp;)&nbsp;</label>
+      <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label>
       <br/>
       <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label>
       <br/>
-      <button type="submit" (click)="toggleInput(); changeBorder()">{{sech}}</button>
+      <button 
+        type="submit" 
+        [ngClass]="{ bordered: color }"
+        (click)="toggleInput(); changeBorder()" 
+        [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+      >{{sech}}</button>
     </form>
 
     <ul>
