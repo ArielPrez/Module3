@@ -1,3 +1,34 @@
   
+    <p><b>Añade mayuscula al inicio y utiliza un 'pipe' llamado 'capitalize'</b></p>
     <p> Hello {{ name | capitalize }}! </p>
     <input [(ngModel)]="name">
+
+    <br>
+    <br>
+    
+<div id="filter">
+    <div>
+        <p><b>Añade (strings) a un (Array) cada vez que haces clic en [Add] y usa una funcion</b></p>
+        <label for="thing_name"> Thing Name </label>
+        <input id="thing_name" placeholder="new thing" type="text" #thingName>
+
+        <button (click)="addItem(thingName.value); thingName.value=''">
+            add
+        </button>
+    </div>
+<br>
+    <div>
+        <p><b>Busca (strings) en un (Array) y filtra los resultados</b></p>
+        <label for="things_name"> Search thing: </label>
+        <input id="things_name" placeholder="thing name"
+                type="text" [(ngModel)]="pattern">
+    </div>
+    <p><b>Muestra los resultados filtrados</b></p>
+    <h4> Stuff list </h4>
+    <ul>
+        <li *ngFor="let thing of stuff | filter:'name':pattern; let i = index">
+            {{ i+1 }}) {{ thing.name }}
+        </li>
+    </ul>
+
+</div>
