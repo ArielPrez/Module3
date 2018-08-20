@@ -3,53 +3,99 @@
     
     <!-- THIS SHOW A SEARCH INPUT WITH A BUTTON -->
     <div id="srchForm">
-        <form action="/action_page.php">
-          <label for="srch">Search:&nbsp;&nbsp;</label>
-      <!-- INPUT TO SEARCH -->
-          <input 
-            class="inputS" 
-            type="search" 
-            id="srch" 
-            name="srch"
-            (keyup)="recordAllTheKeyStrokes($event)" 
-            [disabled]="isInputDisabled" 
-            [ngClass]="{ bordered: color }"
-            [(ngModel)]="pattern"
-          >  <!--[(ngModel)]="sechWrd" // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
-          <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label>
-          <br/>
-          <!-- <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label> -->
-          <br/>
+        <label for="srch">Search:&nbsp;&nbsp;</label>
+        <!-- INPUT TO SEARCH -->
+            <input 
+              class="inputS" 
+              type="search" 
+              id="srch" 
+              name="srch"
+              (keyup)="recordAllTheKeyStrokes($event)" 
+              [disabled]="isInputDisabled"
+              [ngClass]="{ bordered: color }"
+              [(ngModel)]="pattern"
+            >  <!-- // 'bordered' is a css class and 'color' is a variable. --><!-- // name="srch" => THIS IS REQUIRED IN THE INPUT WHEN I NEED TO USE THE 'ngModel' -->
+            <label class="key" for="srch">&nbsp;[&nbsp;{{key}}&nbsp;]&nbsp;</label> <!-- -->
+            <!-- [(ngModel)]="sechWrd" <label class="word" for="" style="margin-left: 80px;">{{sechWrd}}</label> -->
+            <br/>
+            <!-- BUTTON TO SEARCH -->
           <button 
-            type="submit" 
-            [ngClass]="{ bordered: color }"
-            (click)="toggleInput(); changeBorder()" 
-            [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
-          >{{sech}}</button>
-        </form>
+          type="" 
+          [ngClass]="{ bordered: color }"
+          (click)="toggleInput(); changeBorder()" 
+          [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+          >{{add}}</button>
     </div>
+<!-- baja -->
+        <!-- FORM TO ADD -->
+          <div *ngIf="!isActive" id="add">
+              <label for="">Name</label>
+              <input type="text" name="name" [(ngModel)]="newFood.name"  ><br>
+              <label for="">Number of Calories</label>
+              <input type="number" name="calories" [(ngModel)]="newFood.calories" ><br>
+              <label> Quantity </label>
+              <input type="number" name="quantity" [(ngModel)]="newFood.quantity"> <br>
+              <label for="">Image</label>
+              <input type="text"><br>
+        <!-- BUTTON TO ADD -->
+              <button 
+                type="submit" 
+                [ngClass]="{ bordered: color }"
+                (click)="toggleInput(); changeBorder(); addItem()"
+                [style.backgroundColor]="isActive ? 'rgb(202, 199, 199)' : 'rgb(88, 180, 241)'"
+              >Add</button>
+            
+          </div>
+
     
 
-<!-- THIS SHOW A LIST OF FOODS -->
-<h4>
-    List of Foods:
-</h4>
-    <ul>
-      <li *ngFor="let i of foods | search:'name':pattern; let j = index">
-        <span>{{i.name}}</span>
-        <span>Calories: {{i.calories}}</span><br/>
-        <label for="">Quantity:</label>
-        <input 
-          type="number"   
-          value="{{i.quantity}}"
-          />
-        <img [src]="i.image" alt="{{i.name}}">
-       
-      </li>
-    </ul>
+    <!-- THIS SHOW A LIST OF FOODS -->
+    <h4>List of Foods:</h4>
+        <ul>
+          <li *ngFor="let i of foodsArr | search:'name':pattern; let j = index">
+            <p>{{i.name}}</p>
+            <span>Calories: {{i.calories}}</span><br/>
+            <label for="">Quantity:</label>
+            <input 
+              type="number"   
+              value="{{i.quantity}}"
+              />
+            <img [src]="i.image" alt="{{i.name}}">
+          
+          </li>
+        </ul>
 </div>
+<!--  -->
+
+<!--  
+
+<form (ngSubmit)="addAccessItem(person,message)" #myForm="ngForm">
+  
+  <label> person </label>
+
+  <input type="text" name="person" [(ngModel)]="person" #Person="ngModel" required>
+
+    <div *ngIf="Person.errors && (Person.dirty || Person.touched)">
+    
+      <p class="error" [hidden]="!Person.errors.required">
+        Input required.
+      </p>
+
+    </div>
 
 
+  <label> message </label>
 
+  <input type="text" name="message" [(ngModel)]="message" #Message="ngModel" required>
 
+    <div *ngIf="Message.errors && (Message.dirty || Message.touched)">
+    
+      <p class="error" [hidden]="!Message.errors.required">
+          Input required.
+      </p>
 
+    </div>
+
+  <button class="Addbtn" type="submit">Submit</button> 
+
+</form> -->
