@@ -50,52 +50,44 @@
     
 
     <!-- THIS SHOW A LIST OF FOODS -->
-    <h4>List of Foods:</h4>
-        <ul>
-          <li *ngFor="let i of foodsArr | search:'name':pattern; let j = index">
-            <p>{{i.name}}</p>
-            <span>Calories: {{i.calories}}</span><br/>
-            <label for="">Quantity:</label>
-            <input 
-              type="number"   
-              value="{{i.quantity}}"
-              />
-            <img [src]="i.image" alt="{{i.name}}">
-          
-          </li>
-        </ul>
+    <div id="listFoods">
+      <h4>List of Foods:</h4>
+          <ul>
+            <li *ngFor="let i of foodsArr | search:'name':pattern; let j = index">
+              <p>{{i.name}}</p>
+              <span>Calories: {{i.calories}}</span><br/>
+              <label for="">Quantity:</label>
+              <input 
+                name=""
+                type="number"   
+                value="1"
+                #qty
+                />
+              <img [src]="i.image" alt="{{i.name}}"><br>
+              <!-- BUTTON TO ADD -->
+              <button 
+                [ngClass]="{ bordered: color }"
+                (click)="addItemToList(i, qty.value)"
+                [style.backgroundColor]="isActive ? 'rgb(88, 180, 241)' : 'rgb(202, 199, 199)'" 
+              >Add</button>
+            </li>
+          </ul>
+      </div>
+
+      <!-- THIS SHOW A LIST OF TODAY-FOOD -->
+      <div id="todayFoods">
+          <h4>Today Foods:</h4>
+          <span id="tC">Total Calories: [ {{tCal}} ]</span>
+          <ul>
+            <li *ngFor="let i of todayFoods">
+              <p>{{i.name}}</p>
+              <span>Calories: {{i.calories}}</span><br/>
+              <label for="">Quantity: {{i.quantity}}</label>
+              <img [src]="i.image" alt="{{i.name}}"><br>
+              
+              
+            </li>
+          </ul>
+      </div>
 </div>
 <!--  -->
-
-<!--  
-
-<form (ngSubmit)="addAccessItem(person,message)" #myForm="ngForm">
-  
-  <label> person </label>
-
-  <input type="text" name="person" [(ngModel)]="person" #Person="ngModel" required>
-
-    <div *ngIf="Person.errors && (Person.dirty || Person.touched)">
-    
-      <p class="error" [hidden]="!Person.errors.required">
-        Input required.
-      </p>
-
-    </div>
-
-
-  <label> message </label>
-
-  <input type="text" name="message" [(ngModel)]="message" #Message="ngModel" required>
-
-    <div *ngIf="Message.errors && (Message.dirty || Message.touched)">
-    
-      <p class="error" [hidden]="!Message.errors.required">
-          Input required.
-      </p>
-
-    </div>
-
-  <button class="Addbtn" type="submit">Submit</button> 
-
-</form> -->

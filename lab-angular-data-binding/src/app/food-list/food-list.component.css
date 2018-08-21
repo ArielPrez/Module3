@@ -9,8 +9,28 @@
   margin: 2%;
   padding: 2%;
 }
+#listFoods{
+  width: 45%;
+  padding: 0% 2%;
+  display: inline-block;
+  float: left;
+  /* border: 1px solid #000000; */
+
+}
+#todayFoods{
+  width: 45%;
+  padding: 0% 2%;
+  display: inline-block;
+  float: right;
+  /* border: 1px solid #000000; */
+
+}
+#tC{
+  display: inline-block;
+  float: right;
+}
 img{
-  width: 150px;
+  width: 120px;
   height: auto;
   border: 1px solid #000000;
 }
@@ -30,7 +50,7 @@ li{
   display: inline-block;
   float: left;
   /* border: 1px solid #000000; */
-  /* margin: 2% 5%; */
+  margin: 0% 2%;
   /* padding: 2% 2%; */
   width: 25%;
 }

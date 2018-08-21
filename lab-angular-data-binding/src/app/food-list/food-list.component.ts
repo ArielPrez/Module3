@@ -25,12 +25,13 @@ export class FoodListComponent implements OnInit {
   color: Boolean = false;
   isActive = true;
   pattern: string;
+  tCal: number = 0;
 
   constructor() { }
 
   ngOnInit() {
-    this.foodsArr = foods;
-  }
+    this.foodsArr = foods;);
+    this.todayFoods = []  }
 
   recordAllTheKeyStrokes(event) {
     // console.log(`Key inserted: ${event.key}`);
@@ -56,6 +57,17 @@ export class FoodListComponent implements OnInit {
   addItem(){
     this.foodsArr.push(this.newFood);
     this.newFood = {};
+  }
+
+  addItemToList(item,qty){
+    
+    this.tCal += item.calories * qty;
+    this.todayFoods.forEach(element => {
+      if(element.name === item.name){
+        item.quantity += Number(qty);
+      }
+    }); 
+    this.todayFoods.push(item);
   }
   
 }
