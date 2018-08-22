@@ -1,7 +1,5 @@
 #ironFoods{
   text-align: justify;
-  width: 90%;
-  height: auto;
   /* border: 1px solid #000000;   */
 }
 #srchForm{
@@ -10,16 +8,16 @@
   padding: 2%;
 }
 #listFoods{
-  width: 45%;
-  padding: 0% 2%;
+  width: 46%;
+  padding: 0% 1%;
   display: inline-block;
   float: left;
   /* border: 1px solid #000000; */
 
 }
 #todayFoods{
-  width: 45%;
-  padding: 0% 2%;
+  width: 46%;
+  padding: 0% 1%;
   display: inline-block;
   float: right;
   /* border: 1px solid #000000; */
@@ -31,7 +29,7 @@
 }
 img{
   width: 120px;
-  height: auto;
+  height: 120px;
   border: 1px solid #000000;
 }
 button{
@@ -50,9 +48,9 @@ li{
   display: inline-block;
   float: left;
   /* border: 1px solid #000000; */
-  margin: 0% 2%;
-  /* padding: 2% 2%; */
-  width: 25%;
+  margin: 1% 1%;
+  padding: 1% 1%;
+  width: 28%;
 }
 #ironFoods label{
   margin: 20px 0px 20px 0px;
@@ -74,6 +72,7 @@ div, button{
   /* border: 1px solid #000000; */
 }
 input{
+  width: 40px;
   margin: 2% 5%;
   /* text-align: right; */
 }
@@ -96,6 +95,7 @@ button:focus {outline:0;}
   text-align: left;
 }
 .inputS{
+  width: 200px;
   padding: 8px;
   border-radius: 5px;
   background-color: white;

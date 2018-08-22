@@ -30,13 +30,13 @@
         <!-- FORM TO ADD -->
           <div *ngIf="!isActive" id="add">
               <label for="">Name</label>
-              <input type="text" name="name" [(ngModel)]="newFood.name"  ><br>
+              <input class="inputS" type="text" name="name" [(ngModel)]="newFood.name"  ><br>
               <label for="">Number of Calories</label>
-              <input type="number" name="calories" [(ngModel)]="newFood.calories" ><br>
+              <input class="inputS" type="number" name="calories" [(ngModel)]="newFood.calories" ><br>
               <label> Quantity </label>
-              <input type="number" name="quantity" [(ngModel)]="newFood.quantity"> <br>
+              <input class="inputS" type="number" name="quantity" [(ngModel)]="newFood.quantity"> <br>
               <label for="">Image</label>
-              <input type="text"><br>
+              <input class="inputS" type="text"><br>
         <!-- BUTTON TO ADD -->
               <button 
                 type="submit" 
@@ -60,7 +60,7 @@
               <input 
                 name=""
                 type="number"   
-                value="1"
+                value="{{i.quantity}}"
                 #qty
                 />
               <img [src]="i.image" alt="{{i.name}}"><br>

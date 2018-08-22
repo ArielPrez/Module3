@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Component, OnInit, Input } from '@angular/core';
 import foods from '../foods';
 
@@ -31,8 +30,9 @@ export class FoodListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.foodsArr = foods;);
-    this.todayFoods = []  }
+    this.foodsArr = foods;
+    this.todayFoods = [] 
+  }
 
   recordAllTheKeyStrokes(event) {
     // console.log(`Key inserted: ${event.key}`);
@@ -64,7 +64,8 @@ export class FoodListComponent implements OnInit {
     let obj;
     this.tCal += item.calories * qty;
     if (this.todayFoods.length === 0) {
-      item.quantity += Number(qty-1);
+      console.log('item.quntity: '+item.quantity+' qty: '+qty)
+      item.quantity = Number(qty);
       this.todayFoods.push(item);
     }
     else
@@ -77,7 +78,7 @@ export class FoodListComponent implements OnInit {
       if(obj) {
         item.quantity += Number(qty);
       }else{
-        item.quantity += Number(qty-1);
+        item.quantity = Number(qty);
         this.todayFoods.push(item);
       }
     }
