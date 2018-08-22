@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit, Input } from '@angular/core';
 import foods from '../foods';
 
@@ -60,14 +61,28 @@ export class FoodListComponent implements OnInit {
   }
 
   addItemToList(item,qty){
-    
+    let obj;
     this.tCal += item.calories * qty;
-    this.todayFoods.forEach(element => {
-      if(element.name === item.name){
+    if (this.todayFoods.length === 0) {
+      item.quantity += Number(qty-1);
+      this.todayFoods.push(item);
+    }
+    else
+    {
+      this.todayFoods.map(element => {
+        if(element.name === item.name){
+           obj = element;
+        }
+      });
+      if(obj) {
         item.quantity += Number(qty);
+      }else{
+        item.quantity += Number(qty-1);
+        this.todayFoods.push(item);
       }
-    }); 
-    this.todayFoods.push(item);
+    }
+    console.log('qty: '+qty+' item.quantity: '+item.quantity);
+    qty = 0;
   }
   
 }
