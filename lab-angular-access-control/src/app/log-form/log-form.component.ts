@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-log-form',
   templateUrl: './log-form.component.html',
-  styleUrls: ['./log-form.component.css']
+  styleUrls: ['./log-form.component.css'],
+  providers: [AccessControlLogService]
 })
 export class LogFormComponent implements OnInit {
 
@@ -12,6 +13,8 @@ export class LogFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // HARD PART!!
   addAccessItem(person: string, message: string){
 
   }

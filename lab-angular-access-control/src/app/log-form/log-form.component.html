@@ -1,3 +1,25 @@
-<p>
-  log-form works!
-</p>
+<div id="form">
+  <form (ngSubmit)="addAccessItem(myForm)" #myForm="ngForm">
+      <label for="">Person: </label>
+      <input type="text" name="person" [(ngModel)]="person" #myPerson="ngModel" minlength="2" required>
+      <div *ngIf="myPerson.error && (myPerson.dirty || myPerson.touched)">
+        <p class="error" [hidden]="!myPerson.errors.minlength" >
+          Name must be at least {{ person.errors.minlength.requiredLength }} characters long.
+        </p>
+      </div>
+    <br><br>
+      <label for="">Message: </label>
+      <input type="text" name="message" [(ngModel)]="message" #myMessage="ngModel" required >
+      <div *ngIf="myMessage.error && myMessage.touched">
+        <p class="error" [hidden]="!myMessage.errors.required"  >
+          The message is required!
+        </p>
+      </div> 
+<br><br>
+      <button type="submit" [disabled]="!myForm.valid" > Send </button>
+  </form>
+  <div *ngIf="myForm.submitted && myForm.valid">
+    <p> [ Submitted succesfully  :D ] </p>
+  </div>
+</div>
+
