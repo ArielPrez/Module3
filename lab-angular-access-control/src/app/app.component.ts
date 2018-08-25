@@ -8,14 +8,8 @@ import { AccessControlLogService } from './services/access-control-log.service';
   styleUrls: ['./app.component.css'],
   // providers: [AccessControlLogService]
 })
-export class AppComponent implements OnInit {
-  constructor(private accessControlLog: AccessControlLogService){}
+export class AppComponent{
+
   title = 'Access Control';
-  ngOnInit(){}
-  getAccessLogMethod(){
-    this.accessControlLog.getAccessLog();
-  }
-  addAccessItemMethod(){
-    this.accessControlLog.getAccessLog();
-  }
+  
 }

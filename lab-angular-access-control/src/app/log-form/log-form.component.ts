@@ -1,5 +1,6 @@
-import { AccessControlLogService } from './../services/access-control-log.service';
 import { Component, OnInit } from '@angular/core';
+import { AccessControlLogService } from './../services/access-control-log.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-log-form',
@@ -7,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log-form.component.css'],
   providers: [AccessControlLogService]
 })
-export class LogFormComponent implements OnInit {
+export class LogFormComponent {
 
   constructor(private accessControlLog: AccessControlLogService) { }
 
-  ngOnInit() {
-  }
+  // log(person){console.log(person);}
+  
+  logMessages = this.accessControlLog.getAccessLog();
 
   // HARD PART!!
-  addAccessItem(person: string, message: string){
-
+  addAccess(myForm){
+    this.accessControlLog.addAccessItem(myForm);
+    console.log( ...this.logMessages); //accessControlLog.getAccessLog()
   }
 }

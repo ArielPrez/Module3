@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 // import * as _ from 'underscore';
 
 interface logMessageInterfaz {
@@ -10,9 +10,9 @@ interface logMessageInterfaz {
 @Injectable({
   providedIn: 'root'
 })
-export class AccessControlLogService {
-  // logMessages: Object = [];
-  logMessages: logMessageInterfaz[];
+export class AccessControlLogService{
+
+  logMessages: logMessageInterfaz[] = [];
   
   constructor() { }
   // _.findIndex() & _.findWhere ==> method from 'underscore'
@@ -21,7 +21,7 @@ export class AccessControlLogService {
     return this.logMessages;
   }
   
-  addAccessItem(person, message) {
-    this.logMessages.push(person, message);
+  addAccessItem(myForm) {
+    this.logMessages.push(myForm.value.person, myForm.value.message);
   }
 }
